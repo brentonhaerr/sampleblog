@@ -1,19 +1,23 @@
+import { useState } from 'react';
+
 const Home = () => {
+  // We have to useState hooks to update reactive values in our component to
+  // make the page re-render.
+  
+  const [name, setName] = useState('mario');
+  const [age, setAge] = useState(25);
 
-  // All onClick events receive the event as their first argument.
   const handleClick = (event) => {
-    console.log("Hello ninjas.", event);
+    setName("Luigi");
+    setAge(age+1);
   };
-
-  const handleClickAgain = (name) => {
-    console.log("Hello " + name)
-  }
 
   return ( 
     <div className="home">
       <h2>Homepage</h2>
+      <p>Your name: { name }</p>
+      <p>Your age: { age }</p>
       <button onClick={handleClick}>Click me.</button>
-      <button onClick={(event)=>{handleClickAgain('mario'); console.log(event)}}>Click me, too.</button>
     </div>
    );
 }
