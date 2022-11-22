@@ -53,3 +53,22 @@
 .blog-preview a {
   text-decoration: none;
 }
+
+.blogdetails h2 {
+   color: #f1356d;
+   font-size: 20px;
+   margin-bottom: 8px;
+}
+
+.blogdetails div {
+  margin: 20px 0;
+}
+
+.blogdetails button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
