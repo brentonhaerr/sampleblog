@@ -7,10 +7,16 @@ const Home = () => {
     {title: 'Lorem, ipsum.', body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id odit quis nesciunt at modi deleniti numquam ad obcaecati accusamus! Accusantium explicabo repellat nam.", author: "Brenton", id: 2},
     {title: 'Lorem ipsum dolor sit.', body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dicta facilis qui sint natus eius consectetur. Ea saepe sint quas eos!", author: "Christy", id: 3},
   ]);
+
+  const handleDelete = (id) => {
+    let newBlogs = blogs.filter((blog) => (blog.id != id));
+    setBlogs(newBlogs);
+  }
+
   return ( 
     <div className="home">
-      <BlogList blogs={ blogs } title="All Blogs" />
-      <BlogList blogs={ blogs.filter((blog)=>(blog.author === "Brenton")) } title="Brenton's Blogs" />
+      <BlogList blogs={ blogs } title="All Blogs" handleDelete={ handleDelete } />
+      <BlogList blogs={ blogs.filter((blog)=>(blog.author=="Brenton")) } title="Brenton Blogs" handleDelete={ handleDelete } />
     </div>
    );
 }

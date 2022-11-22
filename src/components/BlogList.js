@@ -6,7 +6,7 @@
 
 // This is an alternate way of titling the component to get access to two of
 // the props.
-const BlogList = ({ title, blogs }) => {
+const BlogList = ({ title, blogs, handleDelete }) => { 
 
   return (
     <div className="blog-list">
@@ -15,6 +15,7 @@ const BlogList = ({ title, blogs }) => {
         <div className="blog-preview" key={blog.id}>
           <h2>{blog.title}</h2>
           <p>{blog.author}</p>
+          <button onClick={()=>handleDelete(blog.id)}>Delete Blog</button>
         </div>
       )) }
     </div>
