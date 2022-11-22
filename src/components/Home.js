@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BlogList from './BlogList';
 
 const Home = () => {
@@ -12,6 +12,15 @@ const Home = () => {
     let newBlogs = blogs.filter((blog) => (blog.id != id));
     setBlogs(newBlogs);
   }
+
+  // Any function in useEffect will trigger when the dom rerenders.
+  // Basically, on first load and when state changes. Either initial
+  // load or when the blogs are deleted, in this case.
+  // You should not generally change state in useEffect because it 
+  // can loop.
+  useEffect(()=>{
+    
+  });
 
   return ( 
     <div className="home">
