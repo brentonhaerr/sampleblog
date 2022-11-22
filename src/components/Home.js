@@ -3,6 +3,7 @@ import BlogList from './BlogList';
 
 const Home = () => {
   let [blogs, setBlogs] = useState(null);
+  const [isPending, setIsPending] = useState(true);
 
   let [name, setName] = useState("Mario");
 
@@ -15,15 +16,18 @@ const Home = () => {
       let data = await response.json();
       console.log(data);
       setBlogs(data);
+      setIsPending(false);
     }
-    getBlogs();
+
+    setTimeout(getBlogs, 1000);
   }, []); 
 
   return ( 
     <div className="home">
       <button onClick={()=>(setName("Brenton"))}>Change name</button>
-     { // Use this AND conditional operator so that it does not try to output the bloglist UNTIL the 'blogs' value exists.
-     blogs && <BlogList blogs={blogs} title="All blogs" />}
+      { isPending && <div>Loading...</div> }
+      { // Use this AND conditional operator so that it does not try to output the bloglist UNTIL the 'blogs' value exists.
+        blogs && <BlogList blogs={blogs} title="All blogs" />}
     </div>
    );
 }
