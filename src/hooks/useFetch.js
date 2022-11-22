@@ -27,9 +27,11 @@ function useFetch(url) {
         setError(e);
         setIsPending(false);
       }
+      return (() => console.log("Hello"));
     }
 
-    setTimeout(getBlogs, 750);
+    getBlogs();
+    
   }, []); 
 
   return {data, isPending, error};
