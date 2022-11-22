@@ -4,6 +4,7 @@ import useFetch from '../hooks/useFetch';
 
 const Home = () => {
 
+  // Note the data: blogs, which renames the data from useFetch to blogs.
   const { data: blogs, isPending, error } = useFetch('http://localhost:8000/blogs');
 
   return ( 
